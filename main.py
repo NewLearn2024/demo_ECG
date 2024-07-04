@@ -70,6 +70,6 @@ if st.button('분류 결과 확인 및 비교'):
         probabilities = torch.softmax(logits, dim=1)
         predicted_class = torch.argmax(probabilities).item()
 
-    st.write(f"예측된 분류: {predicted_class}")
-    st.write(f"확률: {probabilities[0, predicted_class].item():.4f}")
-    st.write(f"실제 분류: {int(test_df.iloc[idx, 187])}")
+    st.write(f"모델 예측 label: {predicted_class}")
+    st.write(f"모델 예측 확률: {probabilities[0, predicted_class].item():.4f}")
+    st.write(f"실제 label: {int(test_df.iloc[idx, 187])}")
