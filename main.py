@@ -44,10 +44,10 @@ st.write('심전도(ECG)는 피부에 부착된 전극을 통해 일정 시간 �
 st.write('이러한 신호들은 부정맥, 심근경색, 그 외 다양한 심장 이상 진단에 활용됩니다.')
 st.image('data/ecg.webp')
 st.write('label 0 Normal: 정상 심장 리듬입니다.')
-st.write('label 1 Supraventricular ectopic 심장의 상위 부분에서 시작되는 비정상적인 signal입니다.')
-st.write('label 2 Ventricular ectopic 심장의 하위 부분에서 시작되는 비정상적인 signal입니다.')
-st.write('label 3 Fusion of ventricular and normal 정상적인 심장 박동과 비정상적인 박동이 혼합된 혼합된 signal입니다.')
-st.write('label 4 Fusion of paced and normal 심장 조율기와 정상 심장 박동이 혼합된 signal입니다.')
+st.write('label 1 Supraventricular ectopic: 심장의 상위 부분에서 시작되는 비정상적인 signal입니다.')
+st.write('label 2 Ventricular ectopic: 심장의 하위 부분에서 시작되는 비정상적인 signal입니다.')
+st.write('label 3 Fusion of ventricular and normal: 정상적인 심장 박동과 비정상적인 박동이 혼합된 혼합된 signal입니다.')
+st.write('label 4 Fusion of paced and normal: 심장 조율기와 정상 심장 박동이 혼합된 signal입니다.')
 
 # 신호 선택 및 시각화
 if 'idx' not in st.session_state or st.button('랜덤 ECG 신호 선택'):
