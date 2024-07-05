@@ -29,9 +29,14 @@ def load_model():
 @st.cache_resource
 def load_data():
     test_df = pd.read_csv('data/mitbih_test.csv', header=None)
-    X_test = torch.tensor(test_df.iloc[:, :187].values, dtype=torch.float32)
+    # 각 라벨별로 동일한 수의 샘플을 가져오기 위한 로직
+    balanced_df = pd.DataFrame()
+    for label in test_df[187].unique():
+        balanced_df = pd.concat([balanced_df, test_df[test_df[187] == label].sample(n=1000, replace=True)])
+    balanced_df = balanced_df.sample(frac=1).reset_index(drop=True)  # 데이터 셔플링
+    X_test = torch.tensor(balanced_df.iloc[:, :187].values, dtype=torch.float32)
     X_test = (X_test - X_test.mean()) / X_test.std()
-    return X_test, test_df
+    return X_test, balanced_df
 
 
 model = load_model()
